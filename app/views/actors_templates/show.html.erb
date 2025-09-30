@@ -26,4 +26,9 @@
 <h2>Filmography</h2>
 <% a_id = @the_actor.id %>
 <% matching_credits = Credit.where({ :actor_id => a_id }) %>
-<%= matching_credits.count %> credits found
+
+<% matching_credits.each do |a_credit| %>
+  <div>
+    Movie ID: <%= a_credit.movie_id %>
+  </div>
+<% end %>

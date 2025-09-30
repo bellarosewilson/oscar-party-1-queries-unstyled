@@ -29,11 +29,16 @@
 <% matching_movies = Movie.where({ :director_id => dir_id }) %>
 
 <ul>
-  <% matching_movies.each do |a_movie| %>
+  <% matching_credits.each do |a_credit| %>
+    <% m_id = a_credit.movie_id %>
+    <% matching_movies = Movie.where({ :id => m_id }) %>
+    <% the_movie = matching_movies.at(0) %>
+    
     <li>
-      <a href="/movies/<%= a_movie.id %>">
-        <%= a_movie.title %> (<%= a_movie.year %>)
-      </a>
+          <a href="/movies/<%= the_movie.id %>">
+      <%= the_movie.title %> (<%= the_movie.year %>)
+          </a>
     </li>
   <% end %>
+  
 </ul>
