@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   #saving the route for the ABC 
   get("/movies/:path_id", { :controller => "movies", :action => "show" })  
   get("/directors", { :controller => "directors", :action => "index" })
+  get("/directors/:path_id", { :controller => "directors", :action => "show" })
 end
