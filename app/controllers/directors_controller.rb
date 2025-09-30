@@ -10,4 +10,14 @@ class DirectorsController < ApplicationController
 
     @the_director = matching_directors.at(0)
   end
+  def youngest
+    directors_with_dob = Director.where.not({ :dob => nil })
+    sorted_directors = directors_with_dob.order({ :dob => :desc })
+    @the_youngest_director = sorted_directors.at(0)  
+  end
+   def oldest
+    directors_with_dob = Director.where.not({ :dob => nil })
+    sorted_directors = directors_with_dob.order({ :dob => :desc })
+    @the_oldest_director = sorted_directors.at(0)  
+  end
 end
