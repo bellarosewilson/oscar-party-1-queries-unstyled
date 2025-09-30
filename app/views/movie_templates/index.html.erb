@@ -1,23 +1,17 @@
-<h1>Hello, world!</h1>
+<h1>List of movies</h1>
 
 <% list_of_movies = Movie.all %>
 
-<ol>
-  <% first_movie = list_of_movies.at(0) %>
+<ul>
+  <% list_of_movies.each do |a_movie| %>
+    <li>
+      <img src="<%= a_movie.image %>" width="100">
 
-  <li>
-    <%= first_movie.title %> (<%= first_movie.year %>)
-  </li>
+      <%= a_movie.title %> (<%= a_movie.year %>)
 
-  <% second_movie = list_of_movies.at(1) %>
-
-  <li>
-    <%= second_movie.title %> (<%= first_movie.year %>)
-  </li>
-
-  <% third_movie = list_of_movies.at(2) %>
-
-  <li>
-    <%= third_movie.title %> (<%= first_movie.year %>)
-  </li>
-</ol>
+      <% if a_movie.result == "won" %>
+        🏆
+      <% end %>
+    </li>
+  <% end %>
+</ul>
