@@ -1,0 +1,23 @@
+<h1>Hello, world!</h1>
+
+<% list_of_movies = Movie.all %>
+
+<ol>
+  <% first_movie = list_of_movies.at(0) %>
+
+  <li>
+    <%= first_movie.title %> (<%= first_movie.year %>)
+  </li>
+
+  <% second_movie = list_of_movies.at(1) %>
+
+  <li>
+    <%= second_movie.title %> (<%= first_movie.year %>)
+  </li>
+
+  <% third_movie = list_of_movies.at(2) %>
+
+  <li>
+    <%= third_movie.title %> (<%= first_movie.year %>)
+  </li>
+</ol>
